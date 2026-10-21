@@ -1,0 +1,243 @@
+:root {
+  color-scheme: light;
+  background: #fff;
+}
+
+@font-face {
+  font-family: "Portfolio CN Light";
+  src: url("reference-assets/fonts/Portfolio-CN-Light-subset.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+.project-back {
+  position: fixed;
+  z-index: 100;
+  top: 18px;
+  left: 18px;
+  width: 78px;
+  height: 40px;
+  display: grid;
+  grid-template-columns: 20px auto;
+  gap: 7px;
+  place-items: center;
+  color: #171411;
+  background: rgba(255, 255, 255, .34);
+  border: 1px solid rgba(255, 255, 255, .58);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(42, 28, 20, .09), inset 0 0 0 1px rgba(8, 8, 8, .05), inset 0 1px 0 rgba(255, 255, 255, .65);
+  backdrop-filter: blur(22px) saturate(1.35);
+  -webkit-backdrop-filter: blur(22px) saturate(1.35);
+  animation: project-back-enter 620ms .15s cubic-bezier(.16, 1, .3, 1) both;
+  transition: transform 360ms cubic-bezier(.16, 1, .3, 1), background-color 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+}
+
+.project-back::after {
+  content: "WORK";
+  font: 600 9px/1 Arial, sans-serif;
+  letter-spacing: .1em;
+}
+
+.project-back svg {
+  width: 20px;
+  height: 20px;
+  overflow: visible;
+}
+
+.project-back path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.project-back:hover {
+  background: rgba(255, 255, 255, .68);
+  border-color: rgba(255, 255, 255, .88);
+  box-shadow: 0 10px 28px rgba(42, 28, 20, .13), inset 0 0 0 1px rgba(8, 8, 8, .06);
+  transform: translateX(-2px) scale(1.04);
+}
+
+.project-progress {
+  position: fixed;
+  z-index: 99;
+  top: 18px;
+  right: 18px;
+  width: 112px;
+  height: 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  color: #171411;
+  background: rgba(255,255,255,.34);
+  border: 1px solid rgba(255,255,255,.58);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(42,28,20,.07), inset 0 0 0 1px rgba(8,8,8,.04);
+  backdrop-filter: blur(22px) saturate(1.35);
+  -webkit-backdrop-filter: blur(22px) saturate(1.35);
+  pointer-events: none;
+}
+
+.project-progress-track {
+  position: relative;
+  height: 1px;
+  overflow: hidden;
+  background: rgba(23,20,17,.2);
+}
+
+.project-progress-track i {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: #171411;
+  transform: scaleX(var(--project-progress, 0));
+  transform-origin: 0 50%;
+  transition: transform 180ms linear;
+}
+
+.project-progress em {
+  min-width: 32px;
+  font: normal 600 9px/1 Arial, sans-serif;
+  letter-spacing: .06em;
+  text-align: right;
+}
+
+.project-back:focus-visible {
+  outline: 1px solid #080808;
+  outline-offset: 4px;
+}
+
+@keyframes project-back-enter {
+  from { opacity: 0; transform: translateX(-8px) scale(.9); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+.project-story {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0;
+  line-height: 0;
+}
+
+.project-story img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.project-next {
+  position: relative;
+  min-height: min(52vh, 520px);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 70px 24px;
+  color: #11120f;
+  background:
+    radial-gradient(circle at 24% 18%, rgba(167,146,219,.22), transparent 34%),
+    radial-gradient(circle at 78% 82%, rgba(231,164,126,.24), transparent 38%),
+    #f7ebe0;
+  text-align: center;
+}
+
+.project-next::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(36vw, 420px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(17,18,15,.13);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 24%, rgba(255,255,255,.62), transparent 36%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.65), 0 30px 80px rgba(70,48,81,.09);
+  transition: transform 900ms cubic-bezier(.16,1,.3,1), border-color 400ms ease;
+}
+
+.project-next-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+}
+
+.project-next-label {
+  font: 600 9px/1 Arial, sans-serif;
+  letter-spacing: .14em;
+}
+
+.project-next-title {
+  margin: 20px 0 0;
+  font-family: "Portfolio CN Light", "PingFang SC", sans-serif;
+  font-size: clamp(58px, 8vw, 112px);
+  font-weight: 300;
+  line-height: .95;
+  letter-spacing: .01em;
+  transform: scaleX(.84);
+}
+
+.project-next-arrow {
+  width: 46px;
+  height: 46px;
+  margin-top: 26px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(17,18,15,.22);
+  border-radius: 50%;
+  font: 400 20px/1 Arial, sans-serif;
+  transition: color 300ms ease, background-color 300ms ease, transform 650ms cubic-bezier(.16,1,.3,1);
+}
+
+.project-next:hover::before,
+.project-next:focus-visible::before { transform: scale(1.12); border-color: rgba(17,18,15,.24); }
+.project-next:hover .project-next-arrow,
+.project-next:focus-visible .project-next-arrow { color: #fff; background: #11120f; transform: translate(4px,-4px); }
+.project-next:focus-visible { outline: 2px solid #11120f; outline-offset: -8px; }
+
+@media (max-width: 540px) {
+  .project-back {
+    top: 12px;
+    left: 12px;
+    width: 42px;
+    height: 42px;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .project-back::after { display: none; }
+  .project-back svg { width: 19px; height: 19px; }
+  .project-progress { top: 12px; right: 12px; height: 42px; }
+  .project-next { min-height: 360px; padding: 60px 20px; }
+  .project-next::before { width: 72vw; }
+  .project-next-title { font-size: clamp(48px, 17vw, 76px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-back { animation: none; transition: none; }
+}
