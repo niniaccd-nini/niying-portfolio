@@ -437,13 +437,14 @@ a { text-decoration: none; }
 .sound-control:focus-visible { outline: 1px solid #000; outline-offset: -7px; }
 
 .work {
+  --work-edge-space: 52px;
   counter-reset: work-index;
   position: relative;
   isolation: isolate;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh + var(--work-edge-space));
   min-height: 100vh;
-  padding-top: 52px;
+  padding-block: var(--work-edge-space);
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -566,7 +567,7 @@ a { text-decoration: none; }
   position: relative;
   display: block;
   width: min(780px, 75vw);
-  padding: 9px 30px 12px;
+  padding: 9px 30px;
   border-bottom: 0;
 }
 .work-scribble {
@@ -945,7 +946,7 @@ a { text-decoration: none; }
   .work-item::before { left: 18px; }
   .work-item::after { right: 18px; }
   .work-item { min-height: 0; }
-  .work-inner { width: calc(100% - 36px); padding: 7px 0 9px; }
+  .work-inner { width: calc(100% - 36px); padding: 7px 0; }
   .work-org { height: 10px; margin-bottom: 7px; font-size: 8px; line-height: 9px; }
   .work-title { font-size: 56px; line-height: 1; }
   .work-title-vector { font-size: 56px; }
